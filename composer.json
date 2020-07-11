@@ -1,0 +1,31 @@
+{
+  "name": "furious/router",
+  "description": "PHP 7.4 implementation of Router",
+  "license": "MIT",
+  "keywords": ["router", "routing", "psr7", "php", "php 7.4"],
+  "authors": [
+    {
+      "name": "Arslanov Rasul",
+      "email": "rasularslanoov@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Furious\\Router\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Furious\\Router\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit --colors=always"
+  }
+}
