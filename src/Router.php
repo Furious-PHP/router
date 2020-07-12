@@ -8,6 +8,7 @@ use Furious\Router\Collection\RouteCollection;
 use Furious\Router\Exception\RequestNotMatchedException;
 use Furious\Router\Exception\UnableToFoundRouteException;
 use Furious\Router\Match\RouteMatch;
+use Furious\Router\Route\RouteInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class Router implements RouterInterface
@@ -21,6 +22,14 @@ class Router implements RouterInterface
     public function __construct(RouteCollection $routes)
     {
         $this->routes = $routes;
+    }
+
+    /**
+     * @return RouteCollection
+     */
+    public function getRouteCollection(): RouteCollection
+    {
+        return $this->routes;
     }
 
     public function generate(string $name, array $params = []): string
@@ -48,5 +57,10 @@ class Router implements RouterInterface
         }
 
         throw new RequestNotMatchedException($request);
+    }
+
+    public function addRoute(RouteInterface $route): void
+    {
+        $this->routes->add($route);
     }
 }

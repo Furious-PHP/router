@@ -9,6 +9,7 @@ use Furious\Router\Collection\RouteCollection;
 use Furious\Router\Exception\InvalidArgumentException;
 use Furious\Router\Exception\RequestNotMatchedException;
 use Furious\Router\Exception\UnableToFoundRouteException;
+use Furious\Router\Route\Route;
 use Furious\Router\Router;
 use PHPUnit\Framework\TestCase;
 
@@ -106,5 +107,16 @@ class RouterTest extends TestCase
         $this->expectException(UnableToFoundRouteException::class);
         $this->expectExceptionMessage('Route "home" not found.');
         $router->generate('home');
+    }
+
+    public function testAddRoute(): void
+    {
+        $router = new Router(new RouteCollection());
+
+        $this->assertEquals(0, count($router->getRouteCollection()->getRoutes()));
+
+        $router->addRoute(new Route('home', '/', 'Action', ['GET']));
+
+        $this->assertEquals(1, count($router->getRouteCollection()->getRoutes()));
     }
 }

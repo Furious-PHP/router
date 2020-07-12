@@ -7,6 +7,7 @@ namespace Furious\Router;
 use Furious\Router\Exception\RequestNotMatchedException;
 use Furious\Router\Exception\UnableToFoundRouteException;
 use Furious\Router\Match\RouteMatch;
+use Furious\Router\Route\RouteInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 interface RouterInterface
@@ -25,4 +26,9 @@ interface RouterInterface
      * @return RouteMatch
      */
     public function match(ServerRequestInterface $request): RouteMatch;
+
+    /**
+     * @param RouteInterface $route
+     */
+    public function addRoute(RouteInterface $route): void;
 }
