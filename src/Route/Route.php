@@ -12,7 +12,7 @@ use Furious\Router\Pattern\PatternReplacer;
 use Psr\Http\Message\ServerRequestInterface;
 use function in_array;
 
-final class RegexpRoute implements RouteInterface
+final class Route implements RouteInterface
 {
     private string $name;
     private string $pattern;

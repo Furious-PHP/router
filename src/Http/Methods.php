@@ -7,6 +7,7 @@ namespace Furious\Router\Http;
 final class Methods
 {
     public const LIST = [
-        'GET', 'POST', 'PATCH', 'PUT', 'DELETE'
+        'GET', 'POST', 'PATCH', 'PUT', 'PATCH', 'DELETE',
+        'HEAD', 'CONNECT', 'OPTIONS', 'TRACE'
     ];
 }
