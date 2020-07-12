@@ -11,5 +11,5 @@ interface RouteInterface
 {
     public function generate(string $name, array $params = []): ?string;
 
-    public function match(ServerRequestInterface $request): RouteMatch;
+    public function match(ServerRequestInterface $request): ?RouteMatch;
 }

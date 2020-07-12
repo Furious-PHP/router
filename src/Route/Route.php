@@ -53,7 +53,7 @@ final class Route implements RouteInterface
         return $url;
     }
 
-    public function match(ServerRequestInterface $request): RouteMatch
+    public function match(ServerRequestInterface $request): ?RouteMatch
     {
         if (!$this->matchMethod($request->getMethod())) {
             return null;
@@ -85,7 +85,7 @@ final class Route implements RouteInterface
     private function validateMethods(array $methods): void
     {
         foreach ($methods as $method) {
-            if (in_array($method, Methods::LIST)) {
+            if (!in_array($method, Methods::LIST)) {
                 throw new InvalidMethodException($method);
             }
         }
