@@ -59,7 +59,7 @@ final class Route implements RouteInterface
             return null;
         }
 
-        $pattern = (new PatternReplacer())->replace($this->pattern);
+        $pattern  = (new PatternReplacer())->replace($this->pattern, $this->tokens);
 
         $path = $request->getUri()->getPath();
 
